@@ -274,11 +274,11 @@ export default function Dashboard() {
           >
             <div className="flex flex-wrap items-start justify-center sm:justify-start py-8 px-8 rounded-lg gap-8 ">
               {vitet.map((item) => (
-                <Card className="w-full sm:w-[200px] ">
+                <Card className=" max-w-[400px] w-full sm:w-[250px] hover:cursor-pointer hover:shadow-lg">
                   <CardHeader className="h-[120px] flex justify-center p-0 relative">
                     <img
                       src={item.imgUrl}
-                      className="absolute w-full h-full top-0 z-10"
+                      className="absolute w-full h-full top-0 z-10 object-cover rounded-t-md"
                       alt={item.name}
                     />
                     <CardTitle className="z-20 p-5 text-slate-800 text-3xl font-bold first:mt-0">
@@ -287,7 +287,7 @@ export default function Dashboard() {
                   </CardHeader>
                   <CardContent className="flex py-0 flex-col px-0">
                     <div className="py-2 px-5 border-b-2 border-slate-200">
-                      <CardDescription className="font-medium font-['Inter']">
+                      <CardDescription className="font-medium">
                         123 detyra të zgjidhura
                       </CardDescription>
                     </div>

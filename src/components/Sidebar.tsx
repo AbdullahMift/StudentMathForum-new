@@ -1,7 +1,6 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
-import SMFLogo from "../../public/StudentMathForumLogo.png";
+import SMFLogo from "/StudentMathForumLogo.png";
 import {
   CircleEqual,
   CirclePlus,
@@ -41,9 +40,9 @@ const Sidebar = () => {
             </Button> */}
           </div>
           <div className="flex-1 ">
-            <nav className="grid items-start px-2 text-sm font-medium lg:px-4">
+            <nav className="grid items-start gap-1 px-2 text-sm font-medium lg:px-4">
               <Link
-                to="#"
+                to="/"
                 className={`${
                   isActive === "/" ? "bg-muted" : "text-muted-foreground"
                 } flex items-center gap-3 rounded-lg px-3 py-2  transition-all hover:text-primary`}
@@ -51,22 +50,19 @@ const Sidebar = () => {
                 <Home className="h-4 w-4" />
                 Ballina
               </Link>
-              <Separator className="" />
+              <Separator />
 
               <Link
-                to="#"
+                to="/viti1"
                 className={`${
                   isActive === "/viti1" ? "bg-muted" : "text-muted-foreground"
                 } flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary`}
               >
                 <DiamondPercent className="h-4 w-4" />
                 Viti 1
-                <Badge className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full">
-                  6
-                </Badge>
               </Link>
               <Link
-                to="#"
+                to="/viti2"
                 className={`${
                   isActive === "/viti2" ? "bg-muted" : "text-muted-foreground"
                 } flex items-center gap-3 rounded-lg  px-3 py-2 transition-all hover:text-primary`}
@@ -75,7 +71,7 @@ const Sidebar = () => {
                 Viti 2
               </Link>
               <Link
-                to="#"
+                to="/viti3"
                 className={`${
                   isActive === "/viti3" ? "bg-muted" : "text-muted-foreground"
                 } flex items-center gap-3 rounded-lg  px-3 py-2 transition-all hover:text-primary`}
@@ -84,7 +80,7 @@ const Sidebar = () => {
                 Viti 3
               </Link>
               <Link
-                to="#"
+                to="/viti4"
                 className={`${
                   isActive === "/viti4" ? "bg-muted" : "text-muted-foreground"
                 } flex items-center gap-3 rounded-lg  px-3 py-2 transition-all hover:text-primary`}

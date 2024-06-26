@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import { Button } from "./ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Badge } from "./ui/badge";
 import {
   Card,
@@ -21,6 +21,8 @@ import {
 } from "./ui/card";
 import { Input } from "./ui/input";
 
+import { CircleEqual, CirclePlus, DiamondPercent, SquareX } from "lucide-react";
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -30,13 +32,21 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-import SMFLogo from "../../public/StudentMathForumLogo.png";
+import SMFLogo from "/StudentMathForumLogo.png";
+import { Separator } from "@/components/ui/separator";
+import { useState } from "react";
 
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const closeSidebar = () => setIsOpen(false);
+
+  const location = useLocation();
+  const isActive = location.pathname;
   return (
     <>
       <header className="flex h-14 items-center gap-4 border-b bg-muted/40 px-4 lg:h-[60px] lg:px-6 ">
-        <Sheet>
+        <Sheet open={isOpen} onOpenChange={setIsOpen}>
           <SheetTrigger asChild>
             <Button
               variant="outline"
@@ -50,48 +60,62 @@ const Navbar = () => {
           <SheetContent side="left" className="flex flex-col">
             <nav className="grid gap-2 text-lg font-medium">
               <Link
-                to="#"
-                className="flex items-center gap-2 text-lg font-semibold"
+                to="/"
+                className={`flex items-center gap-2 pb-2 text-lg font-semibold`}
+                onClick={closeSidebar}
               >
                 <img src={SMFLogo} className="h-[22px]" alt="" />
               </Link>
               <Link
-                to="#"
-                className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
+                to="/"
+                className={`${
+                  isActive === "/" ? "bg-muted" : "text-muted-foreground"
+                } mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 hover:text-foreground`}
+                onClick={closeSidebar}
               >
                 <Home className="h-5 w-5" />
-                Dashboard
+                Ballina
+              </Link>
+              <Separator />
+              <Link
+                to="/viti1"
+                className={`${
+                  isActive === "/viti1" ? "bg-muted" : "text-muted-foreground"
+                } mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 hover:text-foreground`}
+                onClick={closeSidebar}
+              >
+                <DiamondPercent className="h-5 w-5" />
+                Viti 1
               </Link>
               <Link
-                to="#"
-                className="mx-[-0.65rem] flex items-center gap-4 rounded-xl bg-muted px-3 py-2 text-foreground hover:text-foreground"
+                to="/viti2"
+                className={`${
+                  isActive === "/viti2" ? "bg-muted" : "text-muted-foreground"
+                } mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 hover:text-foreground`}
+                onClick={closeSidebar}
               >
-                <ShoppingCart className="h-5 w-5" />
-                Orders
-                <Badge className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full">
-                  6
-                </Badge>
+                <CirclePlus className="h-5 w-5" />
+                Viti2
               </Link>
               <Link
-                to="#"
-                className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
+                to="/viti3"
+                className={`${
+                  isActive === "/viti3" ? "bg-muted" : "text-muted-foreground"
+                } mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 hover:text-foreground`}
+                onClick={closeSidebar}
               >
-                <Package className="h-5 w-5" />
-                Products
+                <SquareX className="h-5 w-5" />
+                Viti 3
               </Link>
               <Link
-                to="#"
-                className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
+                to="/viti4"
+                className={`${
+                  isActive === "/viti4" ? "bg-muted" : "text-muted-foreground"
+                } mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 hover:text-foreground`}
+                onClick={closeSidebar}
               >
-                <Users className="h-5 w-5" />
-                Customers
-              </Link>
-              <Link
-                to="#"
-                className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
-              >
-                <LineChart className="h-5 w-5" />
-                Analytics
+                <CircleEqual className="h-5 w-5" />
+                Viti 4
               </Link>
             </nav>
             <div className="mt-auto">

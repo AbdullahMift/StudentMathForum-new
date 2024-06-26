@@ -26,7 +26,6 @@ const Ballina = () => {
         <div className="flex items-center">
           <h1 className=" font-semibold text-2xl">Ballina</h1>
         </div>
-
         <div
           className="h-full border border-dashed shadow-sm rounded"
           x-chunk="dashboard-02-chunk-1"

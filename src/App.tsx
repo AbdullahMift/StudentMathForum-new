@@ -10,6 +10,7 @@ import Viti1 from "./pages/Viti1";
 import Viti2 from "./pages/Viti2";
 import Viti3 from "./pages/Viti3";
 import Viti4 from "./pages/Viti4";
+import BreadcrumbComp from "./components/Breadcrumb";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
 
           <div className="flex flex-col">
             <Navbar />
+            <BreadcrumbComp />
             <Routes>
               <Route path="/" element={<Ballina />} />
               <Route path="/viti1" element={<Viti1 />} />

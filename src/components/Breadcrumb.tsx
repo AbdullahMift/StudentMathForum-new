@@ -33,7 +33,7 @@ export default function BreadcrumbComp() {
               <Slash />
             </BreadcrumbSeparator>
             <BreadcrumbItem>
-              <BreadcrumbLink href={`/${item}`}>{item}</BreadcrumbLink>
+              <BreadcrumbLink href={`/${item}`} >{item}</BreadcrumbLink>
             </BreadcrumbItem>
           </>
         ))}

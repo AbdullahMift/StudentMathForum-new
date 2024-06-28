@@ -10,13 +10,13 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "./ui/badge";
-import { PencilLine } from "lucide-react";
+import { PencilLine, BadgeCheck } from "lucide-react";
 
 import Viti1 from "/Images/Viti1.png";
 
 export default function DetyraCard() {
   return (
-    <Card className="w-[350px flex flex-row">
+    <Card className="w-[350px flex flex-col md:flex-row hover:shadow-md">
       <div>
         <CardHeader className="">
           <CardTitle>Detyra 32</CardTitle>
@@ -45,13 +45,13 @@ export default function DetyraCard() {
             <PencilLine className="h-3" />
             Abdullah Miftari
           </Badge>
-          <Badge variant="success">E verifikuar</Badge>
-        </CardFooter>
+          <Badge variant="success" className="gap-2"><BadgeCheck className="h-3 w-3 pl-0" />E verifikuar</Badge>
+        </CardFooter> 
       </div>
       <div className="p-6">
         <CardContent className="p-0 flex justify-center items-center h-full">
           <div className="flex h-full">
-            <img src={Viti1} className="h-full w-[200px] relative rounded-sm" />
+            <img src={Viti1} className="h-full w-[200px] object-cover relative rounded-sm" />
             <Badge variant="outline" className="m-2 absolute">
               1 / 2
             </Badge>

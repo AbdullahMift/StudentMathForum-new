@@ -22,7 +22,7 @@ export default function DetyraCard() {
           <CardTitle>Detyra 32</CardTitle>
           <CardDescription>Libri: MATEMATIKA VITI 1</CardDescription>
         </CardHeader>
-        <CardContent className="flex flex-row gap-7 sm:gap-0 sm:flex-col">
+        <CardContent className="flex flex-row gap-7 px-6 pb-0 sm:pb-6  sm:gap-0 sm:flex-col">
           <div className="mb-2 grid grid-cols-[25px_1fr] items-start pb-1 last:mb-0 last:pb-0">
             <span className="flex h-2 w-2 translate-y-1 rounded-full bg-sky-500" />
             <div className="space-y-1">
@@ -40,7 +40,7 @@ export default function DetyraCard() {
             </div>
           </div>
         </CardContent>
-        <CardFooter className="flex gap-2 lg:gap-3 hidden sm:block">
+        <CardFooter className="gap-3 sm:flex hidden">
           <Badge variant="outline" className="gap-[0.5] lg:gap-1 ">
             <PencilLine className="h-3" />
             Abdullah Miftari
@@ -49,14 +49,14 @@ export default function DetyraCard() {
         </CardFooter> 
       </div>
       <div className="p-6">
-        <CardContent className="p-0 flex flex-col sm:justify-center items-center h-full">
+        <CardContent className="p-0 flex flex-col sm:justify-center sm:items-center h-full">
           <div className="flex h-full">
             <img src={Viti1} className="h-full w-full sm:w-[200px] object-cover relative rounded-sm" />
             <Badge variant="outline" className="m-2 absolute">
               1 / 2
             </Badge>
           </div>
-          <CardFooter className="flex gap-4 pt-2 lg:gap-3 sm:hidden">
+          <CardFooter className="flex gap-4 pt-2 p-0 pt-4 lg:gap-3 sm:hidden">
           <Badge variant="outline" className="gap-[0.5] lg:gap-1 ">
             <PencilLine className="h-3" />
             Abdullah Miftari

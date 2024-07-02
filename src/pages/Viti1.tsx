@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import DetyraCard from "@/components/DetyraCard";
 import PageTitle from "@/components/PageTitle";
 
+import Loading from "../components/LoadingIcon";
+
 interface MathTask {
   id: string;
   detyra: number;
@@ -19,6 +21,7 @@ interface Viti1Props {
 
 const Viti1: React.FC<Viti1Props> = ({ detyrat }) => {
   const [vitiPareDetyrat, setVitiPareDetyrat] = useState<MathTask[]>([]);
+  const [loading, setLoading] = useState(true);
 
   function mapVitiPareDetyrat() {
     const newVitiPareDetyrat = detyrat.filter((detyra) => {
@@ -29,6 +32,7 @@ const Viti1: React.FC<Viti1Props> = ({ detyrat }) => {
     });
 
     setVitiPareDetyrat(newVitiPareDetyrat);
+    setLoading(false);
   }
 
   useEffect(() => {
@@ -39,7 +43,7 @@ const Viti1: React.FC<Viti1Props> = ({ detyrat }) => {
     <main className="flex flex-1 flex-col p-4 lg:p-6 select-none">
       <PageTitle title="Viti 1" />
       <div className="flex flex-wrap items-start justify-center sm:justify-start py-8 lg:px-8 rounded-lg gap-8">
-        {vitiPareDetyrat.map((detyra) => (
+        {loading ? <Loading/> : vitiPareDetyrat.map((detyra) => (
           <DetyraCard key={detyra.id} detyra={detyra} />
         ))}
       </div>

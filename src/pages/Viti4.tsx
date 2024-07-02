@@ -1,6 +1,8 @@
 import PageTitle from "@/components/PageTitle";
 import React, { useEffect, useState } from "react";
 import DetyraCard from "@/components/DetyraCard";
+import Loading from "../components/LoadingIcon";
+
 
 interface MathTask {
   id: string;
@@ -20,7 +22,7 @@ interface Viti4Props {
 const Viti4: React.FC<Viti4Props> = ({ detyrat })  => {
 
   const [vitiKatertDetyrat, setVitiKatertDetyrat] = useState<MathTask[]>([]);
-
+  const [loading, setLoading] = useState(true);
   function mapVitiKatertDetyrat() {
     const newVitiKatertDetyrat = detyrat.filter((detyra) => {
       return (
@@ -30,6 +32,8 @@ const Viti4: React.FC<Viti4Props> = ({ detyrat })  => {
     });
 
     setVitiKatertDetyrat(newVitiKatertDetyrat);
+    setLoading(false);
+
   }
 
   useEffect(() => {
@@ -38,8 +42,8 @@ const Viti4: React.FC<Viti4Props> = ({ detyrat })  => {
   return (
     <main className="flex flex-1 flex-col p-4  lg:p-6 select-none">
       <PageTitle title="Viti 4" />
-      <div className="flex flex-wrap items-start justify-center sm:justify-start py-8 px-8 rounded-lg gap-8 ">
-      {vitiKatertDetyrat.map((detyra) => (
+      <div className="flex flex-wrap items-start justify-center sm:justify-start py-8 lg:px-8 rounded-lg gap-8">
+        {loading ? <Loading/> : vitiKatertDetyrat.map((detyra) => (
           <DetyraCard key={detyra.id} detyra={detyra} />
         ))}
       </div>

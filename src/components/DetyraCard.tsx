@@ -35,7 +35,7 @@ interface DetyraCardProps {
   console.log('detyra card', detyra);
   
   return (
-    <Card className="w-full sm:w-max max-w-[560px] flex flex-col justify-between sm:flex-row hover:shadow-md">
+    <Card className="w-full sm:w-max max-w-[560px] flex flex-col justify-between sm:flex-row hover:shadow-md hover:border-[lightgray]">
       <div>
         <CardHeader className="">
           <CardTitle>Detyra {detyra.detyra}</CardTitle>

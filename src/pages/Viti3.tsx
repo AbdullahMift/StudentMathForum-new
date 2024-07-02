@@ -1,16 +1,48 @@
 import PageTitle from "@/components/PageTitle";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import DetyraCard from "@/components/DetyraCard";
 
-const Viti3 = () => {
+interface MathTask {
+  id: string;
+  detyra: number;
+  pershkrimi: string;
+  skripta: { titulli: string }; 
+  kapitulli: number;
+  faqe: number;
+  kerkimiDetyres: string;
+  image: string;
+}
+
+interface Viti3Props {
+  detyrat: MathTask[];
+}
+
+const Viti3: React.FC<Viti3Props> = ({ detyrat }) => {
+
+  const [vitiTreteDetyrat, setVitiTreteDetyrat] = useState<MathTask[]>([]);
+
+  function mapVitiTreteDetyrat() {
+    const newVitiTreteDetyrat = detyrat.filter((detyra) => {
+      return (
+        detyra.skripta.titulli === "MATEMATIKA_VITI_3" ||
+        detyra.skripta.titulli === "Zbirka Zadaci Matematika Za III Godina"
+      );
+    });
+
+    setVitiTreteDetyrat(newVitiTreteDetyrat);
+  }
+
+  useEffect(() => {
+    mapVitiTreteDetyrat();
+  }, [detyrat]);
   return (
     <main className="flex flex-1 flex-col p-4  lg:p-6 select-none">
       <PageTitle title="Viti 3" />
-      {/* <div
-      className="h-full border border-dashed shadow-sm rounded"
-      x-chunk="dashboard-02-chunk-1"
-    > */}
-      <div className="flex flex-wrap items-start justify-center sm:justify-start py-8 px-8 rounded-lg gap-8 "></div>
-      {/* </div> */}
+      <div className="flex flex-wrap items-start justify-center sm:justify-start py-8 px-8 rounded-lg gap-8 ">
+      {vitiTreteDetyrat.map((detyra) => (
+          <DetyraCard key={detyra.id} detyra={detyra} />
+        ))}
+      </div>
     </main>
   );
 };

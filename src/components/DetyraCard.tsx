@@ -13,6 +13,7 @@ import { Badge } from "./ui/badge";
 import { PencilLine, BadgeCheck } from "lucide-react";
 
 import Viti1 from "/Images/Viti1.png";
+import 'aos/dist/aos.css';
 
 interface MathTask {
   id: string;
@@ -35,7 +36,7 @@ interface DetyraCardProps {
   console.log('detyra card', detyra);
   
   return (
-    <Card className="w-full sm:w-max max-w-[560px] flex flex-col justify-between sm:flex-row hover:shadow-md hover:border-[lightgray]">
+    <Card data-aos="fade-up" className="w-full sm:w-max max-w-[560px] flex flex-col justify-between sm:flex-row hover:shadow-md hover:border-[lightgray]">
       <div>
         <CardHeader className="">
           <CardTitle>Detyra {detyra.detyra}</CardTitle>

@@ -42,7 +42,7 @@ const Viti1: React.FC<Viti1Props> = ({ detyrat }) => {
   return (
     <main className="flex flex-1 flex-col p-4 lg:p-6 select-none">
       <PageTitle title="Viti 1" />
-      <div className="flex flex-wrap items-start justify-center sm:justify-start py-8 lg:px-8 rounded-lg gap-8">
+      <div className="flex flex-col items-start justify-center sm:justify-start py-8 lg:px-8 rounded-lg gap-8">
         {loading ? <Loading/> : vitiPareDetyrat.map((detyra) => (
           <DetyraCard key={detyra.id} detyra={detyra} />
         ))}

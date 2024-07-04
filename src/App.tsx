@@ -12,6 +12,7 @@ import Viti1 from "./pages/Viti1";
 import Viti2 from "./pages/Viti2";
 import Viti3 from "./pages/Viti3";
 import Viti4 from "./pages/Viti4";
+import ShtoDetyre from "./pages/ShtoDetyre";
 import BreadcrumbComp from "./components/Breadcrumb";
 
 interface MathTask {
@@ -69,6 +70,7 @@ function App() {
               <Route path="/viti2" element={<Viti2 detyrat={detyrat}/>} />
               <Route path="/viti3" element={<Viti3 detyrat={detyrat}/>} />
               <Route path="/viti4" element={<Viti4 detyrat={detyrat}/>} />
+              <Route path="/shtodetyre" element={<ShtoDetyre />} />
             </Routes>
           </div>
         </div>

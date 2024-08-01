@@ -13,13 +13,13 @@ import { Badge } from "./ui/badge";
 import { PencilLine, BadgeCheck } from "lucide-react";
 
 import Viti1 from "/Images/Viti1.png";
-import 'aos/dist/aos.css';
+import "aos/dist/aos.css";
 
 interface MathTask {
   id: string;
   detyra: number;
   pershkrimi: string;
-  skripta: { titulli: string }; 
+  skripta: { titulli: string };
   kapitulli: number;
   faqe: number;
   kerkimiDetyres: string;
@@ -27,16 +27,17 @@ interface MathTask {
 }
 
 interface DetyraCardProps {
-  detyra: MathTask; 
+  detyra: MathTask;
 }
 
+const DetyraCard: React.FC<DetyraCardProps> = ({ detyra }) => {
+  console.log("detyra card", detyra);
 
- const DetyraCard: React.FC<DetyraCardProps> = ({ detyra }) => {
-
-  console.log('detyra card', detyra);
-  
   return (
-    <Card data-aos="fade-up" className="w-full sm:w-max max-w-[560px] flex flex-col justify-between sm:flex-row md:hover:shadow-md hover:border-[lightgray]">
+    <Card
+      data-aos="fade-up"
+      className="w-full sm:w-max max-w-[560px] flex flex-col justify-between sm:flex-row md:hover:shadow-md hover:border-[lightgray]"
+    >
       <div>
         <CardHeader className="">
           <CardTitle>Detyra {detyra.detyra}</CardTitle>
@@ -60,33 +61,45 @@ interface DetyraCardProps {
             </div>
           </div>
         </CardContent>
-        <CardFooter className="gap-3 sm:flex hidden">
+        <CardFooter className="gap-2 sm:flex hidden">
           <Badge variant="outline" className="gap-[0.5] lg:gap-1 ">
             <PencilLine className="h-3" />
             Abdullah Miftari
           </Badge>
-          <Badge variant="success" className="gap-2"><BadgeCheck className="h-3 w-3 pl-0" />E verifikuar</Badge>
-        </CardFooter> 
+          <Badge variant="success" className="gap-2">
+            <BadgeCheck className="h-3 w-3 pl-0" />E verifikuar
+          </Badge>
+        </CardFooter>
+         
       </div>
       <div className="p-6">
         <CardContent className="p-0 flex flex-col sm:justify-center sm:items-center h-full">
           <div className="flex h-full">
-            <img src={detyra.image[0]} loading="lazy" width="100" height="50" className="h-[200px] sm:h-full max-h-[200px] w-full sm:w-[200px] object-cover relative rounded-sm bg-gradient-to-t from-[darkgray] to-[lightgray]" />
+            <img
+              src={detyra.image[0]}
+              loading="lazy"
+              width="100"
+              height="50"
+              className="h-[200px] sm:h-full max-h-[200px] w-full sm:w-[200px] object-cover relative rounded-sm bg-gradient-to-t from-[darkgray] to-[lightgray]"
+            />
             <Badge variant="outline" className="m-2 absolute">
               1 / {detyra.image.length}
             </Badge>
           </div>
           <CardFooter className="flex gap-4 p-0 pt-4 lg:gap-3 sm:hidden">
-          <Badge variant="outline" className="gap-[0.5] lg:gap-1 ">
-            <PencilLine className="h-3" />
-            Abdullah Miftari
-          </Badge>
-          <Badge variant="success" className="gap-2"><BadgeCheck className="h-3 w-3 pl-0" />E verifikuar</Badge>
-        </CardFooter> 
+            <Badge variant="outline" className="gap-[0.5] lg:gap-1 ">
+              <PencilLine className="h-3" />
+              Abdullah Miftari
+            </Badge>
+            <Badge variant="success" className="gap-2">
+              <BadgeCheck className="h-3 w-3 pl-0" />E verifikuar
+            </Badge>
+          </CardFooter>
+           
         </CardContent>
       </div>
     </Card>
   );
-}
+};
 
 export default DetyraCard;

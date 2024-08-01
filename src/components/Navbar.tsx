@@ -1,9 +1,4 @@
-import {
-  CircleUser,
-  Home,
-  Menu,
-  Search,
-} from "lucide-react";
+import { CircleUser, Home, Menu, Search } from "lucide-react";
 import { Button } from "./ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 import { Link, useLocation } from "react-router-dom";
@@ -147,10 +142,13 @@ const Navbar = () => {
           </form>
         </div>
         <div>
-        <Button variant="secondary" size="icon" className="rounded-full">
+          <Link to="/shtodetyre">
+            <Button variant="secondary" size="icon" className="rounded-full">
               <CirclePlus className="h-5 w-5" />
-            </Button></div>
-        <DropdownMenu >
+            </Button>
+          </Link>
+        </div>
+        <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="secondary" size="icon" className="rounded-full">
               <CircleUser className="h-5 w-5" />

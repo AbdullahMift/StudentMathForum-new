@@ -12,7 +12,6 @@ import {
 import { Badge } from "./ui/badge";
 import { PencilLine, BadgeCheck } from "lucide-react";
 
-import Viti1 from "/Images/Viti1.png";
 import "aos/dist/aos.css";
 
 interface MathTask {

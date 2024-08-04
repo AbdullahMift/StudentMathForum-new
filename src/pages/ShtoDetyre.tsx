@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 
 import { Input } from "@/components/ui/input";
 
@@ -7,6 +8,8 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 
 import { Button } from "@/components/ui/button";
+
+import { Upload, CircleX } from "lucide-react";
 
 import {
   Select,
@@ -19,6 +22,16 @@ import {
 } from "@/components/ui/select";
 
 const ShtoDetyre = () => {
+  const [images, setImages] = useState<File[]>([]);
+  const [fileNames, setfileNames] = useState<string>("");
+
+  function deleteImage(imageIndex) {
+    setImages((prevImages) =>
+      prevImages.filter((img, index) => index !== imageIndex)
+    );
+  }
+  console.log("images", images);
+
   return (
     <div className="flex flex-col items-start px-4 lg:px-8 pt-4 md:pt-10 ">
       <div className="w-full sm:w-[60%] lg:w-[50%] xl:w-[40%] 2xl flex flex-col gap-4">
@@ -103,7 +116,66 @@ const ShtoDetyre = () => {
 
           <Textarea id="pershkrimi" rows={2} placeholder="x^2 - 4x + 2" />
         </div>
+        <div>
+          <Label htmlFor="zgjidhje">Zgjidhje</Label>
 
+          <div
+            onClick={() =>
+              document.querySelector<HTMLInputElement>(".input-field")?.click()
+            }
+            className="flex text-slate-500 justify-center items-center gap-2 w-full rounded-md border-input border-[2px] border-dashed p-[20px]"
+          >
+            {images.length === 0 ? (
+              <>
+                <Upload size={20} />
+                <p className="text-[15px]">Upload</p>
+              </>
+            ) : (
+              <>
+                {images.map((item, index) => (
+                  <div key={index}>
+                    <img
+                      src={URL.createObjectURL(item)}
+                      className="rounded-md h-[120px]"
+                    />
+                    <p className="text-sm flex items-center gap-2">
+                      img {index + 1}
+                      <CircleX
+                        size={15}
+                        onClick={(event) => {
+                          event.stopPropagation();
+                          deleteImage(index);
+                        }}
+                      />
+                    </p>
+                  </div>
+                ))}
+              </>
+            )}
+          </div>
+
+          <input
+            type="file"
+            accept="image/*"
+            className="input-field"
+            hidden
+            multiple
+            onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+              const { files } = event.target;
+              if (files) {
+                const selectedImages = Array.from(files).slice(0, 3);
+                console.log("selectedImages", selectedImages);
+                if (selectedImages.length > 0) {
+                  setImages(selectedImages);
+
+                  setfileNames(
+                    selectedImages.map((file: File) => file.name).join(", ")
+                  );
+                }
+              }
+            }}
+          />
+        </div>
         <div>
           <Button className="w-full">Shto</Button>
         </div>

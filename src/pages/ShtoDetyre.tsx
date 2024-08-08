@@ -1,4 +1,6 @@
 import React from "react";
+import AddingTaskToDb from "../components/AddingTaskToDb.js";
+
 import { useState } from "react";
 
 import { Input } from "@/components/ui/input";
@@ -25,7 +27,20 @@ const ShtoDetyre = () => {
   const [images, setImages] = useState<File[]>([]);
   const [fileNames, setfileNames] = useState<string>("");
 
-  function deleteImage(imageIndex) {
+  // const [detyra, setDetyra] = useState("");
+  // const [pershkrimi, setPershkrimi] = useState("");
+  // const [skripta, setSkripta] = useState({});
+  // const [kapitulli, setKapitulli] = useState(1);
+  // const [faqe, setFaqe] = useState(1);
+  // const [kerkimiDetyres, setKerkimiDetyres] = useState("");
+  // const [image, setImage] = useState([]);
+
+  // const handleData = () => {
+
+  //   AddingTaskToDb(detyra, pershkrimi, skripta, kapitulli, faqe, kerkimiDetyres, image);
+  // };
+
+  function deleteImage(imageIndex: number) {
     setImages((prevImages) =>
       prevImages.filter((img, index) => index !== imageIndex)
     );
@@ -123,7 +138,7 @@ const ShtoDetyre = () => {
             onClick={() =>
               document.querySelector<HTMLInputElement>(".input-field")?.click()
             }
-            className="flex text-slate-500 justify-center items-center gap-2 w-full rounded-md border-input border-[2px] border-dashed p-[20px]"
+            className="flex text-slate-500 justify-center items-center gap-2 w-full rounded-md border-input border-[2px] border-dashed p-[30px]"
           >
             {images.length === 0 ? (
               <>
@@ -133,27 +148,26 @@ const ShtoDetyre = () => {
             ) : (
               <>
                 {images.map((item, index) => (
-                  <div key={index}>
+                  <div key={index} className="relative">
                     <img
                       src={URL.createObjectURL(item)}
-                      className="rounded-md h-[120px]"
+                      height="50"
+                      className="bg-slate-100 rounded-md h-[120px]"
                     />
-                    <p className="text-sm flex items-center gap-2">
-                      img {index + 1}
-                      <CircleX
-                        size={15}
-                        onClick={(event) => {
-                          event.stopPropagation();
-                          deleteImage(index);
-                        }}
-                      />
-                    </p>
+                    <CircleX
+                      size={20}
+                      stroke="black"
+                      className="  fill-[white] absolute right-2 top-2 cursor-pointer"
+                      onClick={(event) => {
+                        event.stopPropagation();
+                        deleteImage(index);
+                      }}
+                    />
                   </div>
                 ))}
               </>
             )}
           </div>
-
           <input
             type="file"
             accept="image/*"

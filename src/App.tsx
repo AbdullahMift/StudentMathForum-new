@@ -3,7 +3,7 @@ import "./App.css";
 import { BrowserRouter, Route } from "react-router-dom";
 import { Routes } from "react-router-dom";
 
-import React, { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback } from "react";
 
 import Ballina from "./pages/Ballina";
 import Sidebar from "./components/Sidebar";
@@ -14,6 +14,7 @@ import Viti3 from "./pages/Viti3";
 import Viti4 from "./pages/Viti4";
 import ShtoDetyre from "./pages/ShtoDetyre";
 import BreadcrumbComp from "./components/Breadcrumb";
+import DetyraPage from "./pages/DetyraPage.jsx";
 
 interface MathTask {
   id: string;
@@ -27,7 +28,6 @@ interface MathTask {
 }
 
 function App() {
-
   const [detyrat, setDetyrat] = useState<MathTask[]>([]);
 
   const fetchAllMathTasks = useCallback(async () => {
@@ -53,8 +53,7 @@ function App() {
     fetchAllMathTasks();
   }, [fetchAllMathTasks]);
 
-  console.log('detyrat', detyrat);
-  
+  console.log("detyrat", detyrat);
 
   return (
     <>
@@ -67,10 +66,11 @@ function App() {
             <Routes>
               <Route path="/" element={<Ballina />} />
               <Route path="/viti1" element={<Viti1 detyrat={detyrat} />} />
-              <Route path="/viti2" element={<Viti2 detyrat={detyrat}/>} />
-              <Route path="/viti3" element={<Viti3 detyrat={detyrat}/>} />
-              <Route path="/viti4" element={<Viti4 detyrat={detyrat}/>} />
+              <Route path="/viti2" element={<Viti2 detyrat={detyrat} />} />
+              <Route path="/viti3" element={<Viti3 detyrat={detyrat} />} />
+              <Route path="/viti4" element={<Viti4 detyrat={detyrat} />} />
               <Route path="/shtodetyre" element={<ShtoDetyre />} />
+              <Route path="/detyra-" element={<DetyraPage />} />
             </Routes>
           </div>
         </div>
